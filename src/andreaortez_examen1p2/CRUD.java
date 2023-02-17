@@ -1,4 +1,3 @@
-
 package andreaortez_examen1p2;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ public class CRUD extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipo = new javax.swing.ButtonGroup();
         CRUD = new javax.swing.JPanel();
         header1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,7 +48,7 @@ public class CRUD extends javax.swing.JFrame {
         tf_marca = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        enviar1 = new javax.swing.JButton();
+        enviarLaptop = new javax.swing.JButton();
         rgb = new javax.swing.JComboBox<>();
         pn_escritorio = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -57,9 +57,10 @@ public class CRUD extends javax.swing.JFrame {
         tf_almacenamiento = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        enviar2 = new javax.swing.JButton();
+        enviarEscritorio = new javax.swing.JButton();
         tipoa = new javax.swing.JComboBox<>();
         tarjeta1 = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         pn_listar = new javax.swing.JPanel();
         listarinfo = new javax.swing.JScrollPane();
         info = new javax.swing.JTextArea();
@@ -68,7 +69,7 @@ public class CRUD extends javax.swing.JFrame {
         title2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaeliminar = new javax.swing.JTable();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        eliminarf = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,6 +187,7 @@ public class CRUD extends javax.swing.JFrame {
         });
         pn_agregar.add(tf_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
 
+        tipo.add(escritorio);
         escritorio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         escritorio.setText("Escritorio");
         escritorio.addActionListener(new java.awt.event.ActionListener() {
@@ -195,6 +197,7 @@ public class CRUD extends javax.swing.JFrame {
         });
         pn_agregar.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
+        tipo.add(laptop);
         laptop.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         laptop.setText("Laptop");
         pn_agregar.add(laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
@@ -240,16 +243,16 @@ public class CRUD extends javax.swing.JFrame {
         jLabel15.setText("Laptop");
         pn_laptop.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        enviar1.setBackground(new java.awt.Color(0, 255, 0));
-        enviar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        enviar1.setForeground(new java.awt.Color(255, 255, 255));
-        enviar1.setText("Enviar");
-        enviar1.addActionListener(new java.awt.event.ActionListener() {
+        enviarLaptop.setBackground(new java.awt.Color(0, 255, 0));
+        enviarLaptop.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        enviarLaptop.setForeground(new java.awt.Color(255, 255, 255));
+        enviarLaptop.setText("Enviar");
+        enviarLaptop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enviar1ActionPerformed(evt);
+                enviarLaptopActionPerformed(evt);
             }
         });
-        pn_laptop.add(enviar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+        pn_laptop.add(enviarLaptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         rgb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sí", "No" }));
         pn_laptop.add(rgb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 230, -1));
@@ -263,44 +266,50 @@ public class CRUD extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Capacidad RAM");
-        pn_escritorio.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        pn_escritorio.add(tf_ram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 270, 30));
+        pn_escritorio.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        pn_escritorio.add(tf_ram, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 270, 30));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Capacidad de almacenamiento");
-        pn_escritorio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-        pn_escritorio.add(tf_almacenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 270, 30));
+        pn_escritorio.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        pn_escritorio.add(tf_almacenamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 270, 30));
 
         jLabel10.setBackground(new java.awt.Color(0, 0, 0));
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Tipo de almacenamiento");
-        pn_escritorio.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        pn_escritorio.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tarjeta Gráfica");
-        pn_escritorio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        pn_escritorio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
 
-        enviar2.setBackground(new java.awt.Color(0, 255, 0));
-        enviar2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        enviar2.setForeground(new java.awt.Color(255, 255, 255));
-        enviar2.setText("Enviar");
-        enviar2.addActionListener(new java.awt.event.ActionListener() {
+        enviarEscritorio.setBackground(new java.awt.Color(0, 255, 0));
+        enviarEscritorio.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        enviarEscritorio.setForeground(new java.awt.Color(255, 255, 255));
+        enviarEscritorio.setText("Enviar");
+        enviarEscritorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enviar2ActionPerformed(evt);
+                enviarEscritorioActionPerformed(evt);
             }
         });
-        pn_escritorio.add(enviar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
+        pn_escritorio.add(enviarEscritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
         tipoa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HDD", "SSD" }));
-        pn_escritorio.add(tipoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 270, 30));
+        pn_escritorio.add(tipoa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 270, 30));
 
         tarjeta1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sí", "No" }));
-        pn_escritorio.add(tarjeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 270, -1));
+        pn_escritorio.add(tarjeta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 270, -1));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Escritorio");
+        pn_escritorio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 10, 300, -1));
 
         CRUD.add(pn_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 300, 440));
 
@@ -339,11 +348,11 @@ public class CRUD extends javax.swing.JFrame {
         tablaeliminar.setGridColor(new java.awt.Color(255, 255, 255));
         jScrollPane2.setViewportView(tablaeliminar);
 
-        jToggleButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jToggleButton1.setText("Eliminar");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        eliminarf.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        eliminarf.setText("Eliminar");
+        eliminarf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                eliminarfActionPerformed(evt);
             }
         });
 
@@ -354,7 +363,7 @@ public class CRUD extends javax.swing.JFrame {
             .addComponent(title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(pn_eliminarLayout.createSequentialGroup()
                 .addGap(238, 238, 238)
-                .addComponent(jToggleButton1)
+                .addComponent(eliminarf)
                 .addContainerGap(242, Short.MAX_VALUE))
             .addGroup(pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_eliminarLayout.createSequentialGroup()
@@ -368,7 +377,7 @@ public class CRUD extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(title2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
+                .addComponent(eliminarf)
                 .addGap(22, 22, 22))
             .addGroup(pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_eliminarLayout.createSequentialGroup()
@@ -409,12 +418,20 @@ public class CRUD extends javax.swing.JFrame {
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
         pn_agregar.setVisible(true);
+        pn_escritorio.setVisible(false);
+        pn_laptop.setVisible(false);
+        pn_listar.setVisible(false);
+        pn_eliminar.setVisible(false);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void listarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listarActionPerformed
+        pn_agregar.setVisible(false);
+        pn_escritorio.setVisible(false);
+        pn_laptop.setVisible(false);
         pn_listar.setVisible(true);
-        info.setText(pcs.toString());
+        pn_eliminar.setVisible(false);
 
+        info.setText(pcs.toString());
     }//GEN-LAST:event_listarActionPerformed
 
     private void escritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escritorioActionPerformed
@@ -422,66 +439,80 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_escritorioActionPerformed
 
     private void enviar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar3ActionPerformed
-        try {
-            if (escritorio.isSelected()) {
-                pn_escritorio.setVisible(true);
-//                String a = tf_ram.getText();
-//                String b = tf_almacenamiento.getText();
-                String c = tf_ip.getText();
-                String d = tf_mascara.getText();
-                String e = tf_host.getText();
-                pcs.add(new PC_Escritorio(tf_ram.getText(), tf_almacenamiento.getText(),
-                    tipoa.getSelectedItem().toString(), tarjeta1.getSelectedItem().toString(), Integer.parseInt(c),
-                    Integer.parseInt(d), e));
+        if (escritorio.isSelected()) {
+            pn_escritorio.setVisible(true);
         } else {
             pn_laptop.setVisible(true);
-            pcs.add(new Laptop(tf_marca.getText(), Integer.parseInt(tf_definicion.getText()), rgb.getSelectedItem().toString(),
-                Integer.parseInt(tf_ip.getText()), Integer.parseInt(tf_mascara.getText()), tf_host.getText()));
-        }
-
-        tf_ip.setText("");
-        tf_mascara.setText("");
-        tf_host.setText("");
-        tf_ram.setText("");
-        tf_almacenamiento.setText("");
-        tf_marca.setText("");
-        tf_definicion.setText("");
-
-        JOptionPane.showMessageDialog(this, "Producto agregado exitosamente");
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }//GEN-LAST:event_enviar3ActionPerformed
 
-    private void enviar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enviar1ActionPerformed
+    private void enviarLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLaptopActionPerformed
+        try {
+            pcs.add(new Laptop(tf_marca.getText(), Integer.parseInt(tf_definicion.getText()), rgb.getSelectedItem().toString(),
+                    Integer.parseInt(tf_ip.getText()), Integer.parseInt(tf_mascara.getText()), tf_host.getText()));
 
-    private void enviar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enviar2ActionPerformed
+            tf_marca.setText("");
+            tf_definicion.setText("");
+            tf_ip.setText("");
+            tf_mascara.setText("");
+            tf_host.setText("");
+
+            JOptionPane.showMessageDialog(this, "¡PRODUCTO AGREGADO CON ÉXITO!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        pn_laptop.setVisible(false);
+    }//GEN-LAST:event_enviarLaptopActionPerformed
+
+    private void enviarEscritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEscritorioActionPerformed
+        try {
+            String c = tf_ip.getText();
+            String d = tf_mascara.getText();
+            String e = tf_host.getText();
+
+            pcs.add(new PC_Escritorio(tf_ram.getText(), tf_almacenamiento.getText(),
+                    tipoa.getSelectedItem().toString(), tarjeta1.getSelectedItem().toString(), Integer.parseInt(c),
+                    Integer.parseInt(d), e));
+
+            tf_ram.setText("");
+            tf_almacenamiento.setText("");
+            tf_ip.setText("");
+            tf_mascara.setText("");
+            tf_host.setText("");
+
+            JOptionPane.showMessageDialog(this, "¡PRODUCTO AGREGADO CON ÉXITO!");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        pn_escritorio.setVisible(false);
+    }//GEN-LAST:event_enviarEscritorioActionPerformed
 
     private void tf_ipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ipActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_ipActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-       pn_eliminar.setVisible(true);
+        pn_agregar.setVisible(false);
+        pn_escritorio.setVisible(false);
+        pn_laptop.setVisible(false);
+        pn_listar.setVisible(false);
+        pn_eliminar.setVisible(true);
+        ListarTabla();
     }//GEN-LAST:event_eliminarActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void eliminarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfActionPerformed
         if (tablaeliminar.getSelectedRow() >= 0) {
             int r = JOptionPane.showConfirmDialog(tablaeliminar, "¿Desea elimnar producto?", "Eliminar producto", YES_NO_OPTION);
             if (r == 0) {
                 pcs.remove(tablaeliminar.getSelectedRow());
-                listarTabla();
+                ListarTabla();
                 JOptionPane.showMessageDialog(this, "Producto eliminado exitosamente");
             }
         }
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_eliminarfActionPerformed
 
     ArrayList<PC> pcs = new ArrayList();
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -513,17 +544,14 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
     }
-    
-    private void listarTabla() {
-        try {
-            //limpiar tabla
-            tablaeliminar.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
-                    new String[]{"Marca", "Modelo", "Fecha", "Color", "Tipo", "Millas", "Cámara"}));
 
-            // TODO add your handling code here:
+    private void ListarTabla() {
+        try {
+            tablaeliminar.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
+                    new String[]{"Dirección IP", "Máscara de Red", "Hostname"}));
+
             for (PC t : pcs) {
-                
-                Object[] row = {t.getIP(), t.getMascara(), t.getHost().toString()};
+                Object[] row = {t.getIP(), t.getMascara(), t.getHost()};
                 DefaultTableModel modelo = (DefaultTableModel) tablaeliminar.getModel();
                 modelo.addRow(row);
                 tablaeliminar.setModel(modelo);
@@ -539,12 +567,14 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JButton agregar;
     private javax.swing.JPanel botones;
     private javax.swing.JButton eliminar;
-    private javax.swing.JButton enviar1;
-    private javax.swing.JButton enviar2;
+    private javax.swing.JToggleButton eliminarf;
     private javax.swing.JButton enviar3;
+    private javax.swing.JButton enviarEscritorio;
+    private javax.swing.JButton enviarLaptop;
     private javax.swing.JRadioButton escritorio;
     private javax.swing.JPanel header1;
     private javax.swing.JTextArea info;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -560,7 +590,6 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelMin1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JRadioButton laptop;
     private javax.swing.JButton listar;
     private javax.swing.JScrollPane listarinfo;
@@ -579,6 +608,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JTextField tf_marca;
     private javax.swing.JTextField tf_mascara;
     private javax.swing.JTextField tf_ram;
+    private javax.swing.ButtonGroup tipo;
     private javax.swing.JComboBox<String> tipoa;
     private javax.swing.JLabel title1;
     private javax.swing.JLabel title2;

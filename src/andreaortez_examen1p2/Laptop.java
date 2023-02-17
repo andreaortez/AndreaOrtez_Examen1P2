@@ -40,7 +40,7 @@ public class Laptop extends PC{
 
     @Override
     public String toString() {
-        return "Laptop{" + "marca=" + marca + ", RGB=" + RGB + ", definicion=" + definicion + '}';
+        return super.toString() + "\nMarca= " + marca + "\nDefinición de pantalla= " + definicion + "\nRGB en el teclado= " + RGB;
     }
     
 }
