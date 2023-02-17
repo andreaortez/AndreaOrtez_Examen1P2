@@ -11,7 +11,6 @@ public class AndreaOrtez_Examen1P2 {
         Menu menu = new Menu();
         menu.setVisible(true);
         
-        
     }
     
 }
