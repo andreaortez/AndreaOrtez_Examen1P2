@@ -4,6 +4,9 @@
  */
 package andreaortez_examen1p2;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario Autorizado
@@ -34,7 +37,7 @@ public class CRUD extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        pn_agregar = new javax.swing.JPanel();
+        pn_agregar1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,9 +109,9 @@ public class CRUD extends javax.swing.JFrame {
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 440));
 
-        pn_agregar.setBackground(new java.awt.Color(214, 217, 224));
-        pn_agregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(pn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 560, 440));
+        pn_agregar1.setBackground(new java.awt.Color(214, 217, 224));
+        pn_agregar1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(pn_agregar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 560, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -133,7 +136,12 @@ public class CRUD extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabelMinMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int op = Integer.parseInt(JOptionPane.showInputDialog(null, "1-> Escritorio\n2-> Laptop\nIngrese el tipo de PC"));
+        if (op==1) {
+            pn_agregar1.setVisible(true);
+        }else if(op==2){
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -180,6 +188,6 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel pn_agregar;
+    private javax.swing.JPanel pn_agregar1;
     // End of variables declaration//GEN-END:variables
 }
