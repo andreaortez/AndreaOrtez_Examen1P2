@@ -20,6 +20,7 @@ public class Menu extends javax.swing.JFrame {
         tarjeta = new javax.swing.ButtonGroup();
         tipo = new javax.swing.ButtonGroup();
         almacenamiento = new javax.swing.ButtonGroup();
+        RGB = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         barra = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -36,16 +37,26 @@ public class Menu extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         pn_agregar = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tf_ip = new javax.swing.JTextField();
-        b_escritorio = new javax.swing.JCheckBox();
-        b_laptop = new javax.swing.JCheckBox();
         tf_host1 = new javax.swing.JTextField();
         tf_mascara1 = new javax.swing.JTextField();
-        enviar = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tf_ip1 = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        enviar3 = new javax.swing.JButton();
+        pn_laptop = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_definicion = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        tf_marca1 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        si2 = new javax.swing.JRadioButton();
+        no2 = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        enviar1 = new javax.swing.JButton();
         pn_escritorio = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         tf_ram = new javax.swing.JTextField();
@@ -57,6 +68,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         no = new javax.swing.JCheckBox();
         si = new javax.swing.JCheckBox();
+        enviar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -206,12 +218,6 @@ public class Menu extends javax.swing.JFrame {
         pn_agregar.setBackground(new java.awt.Color(214, 217, 224));
         pn_agregar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Dirección IP");
-        pn_agregar.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
         jLabel5.setBackground(new java.awt.Color(0, 0, 0));
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -223,30 +229,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Hostname");
         pn_agregar.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
-        pn_agregar.add(tf_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
-
-        tipo.add(b_escritorio);
-        b_escritorio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        b_escritorio.setText("Escritorio");
-        pn_agregar.add(b_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
-
-        tipo.add(b_laptop);
-        b_laptop.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        b_laptop.setText("Laptop");
-        pn_agregar.add(b_laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, -1, -1));
         pn_agregar.add(tf_host1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 230, 30));
         pn_agregar.add(tf_mascara1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 230, 30));
-
-        enviar.setBackground(new java.awt.Color(0, 255, 0));
-        enviar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        enviar.setForeground(new java.awt.Color(255, 255, 255));
-        enviar.setText("Enviar");
-        enviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enviarActionPerformed(evt);
-            }
-        });
-        pn_agregar.add(enviar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -254,7 +238,96 @@ public class Menu extends javax.swing.JFrame {
         jLabel11.setText("Tipo");
         pn_agregar.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
 
-        CRUD.add(pn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 270, 440));
+        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setText("Dirección IP");
+        pn_agregar.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        pn_agregar.add(tf_ip1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
+
+        tipo.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jRadioButton1.setText("Escritorio");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        pn_agregar.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+
+        tipo.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jRadioButton2.setText("Laptop");
+        pn_agregar.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
+
+        enviar3.setBackground(new java.awt.Color(0, 255, 0));
+        enviar3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        enviar3.setForeground(new java.awt.Color(255, 255, 255));
+        enviar3.setText("Enviar");
+        enviar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar3ActionPerformed(evt);
+            }
+        });
+        pn_agregar.add(enviar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
+
+        CRUD.add(pn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 260, 440));
+
+        pn_laptop.setBackground(new java.awt.Color(214, 217, 224));
+        pn_laptop.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("RGB");
+        pn_laptop.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        pn_laptop.add(tf_definicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 230, 30));
+
+        jLabel13.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel13.setText("Marca");
+        pn_laptop.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        pn_laptop.add(tf_marca1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 230, 30));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("Definición de pantalla");
+        pn_laptop.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+
+        RGB.add(si2);
+        si2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        si2.setText("Sí");
+        si2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                si2ActionPerformed(evt);
+            }
+        });
+        pn_laptop.add(si2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        RGB.add(no2);
+        no2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        no2.setText("No");
+        pn_laptop.add(no2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 3, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Laptop");
+        pn_laptop.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        enviar1.setBackground(new java.awt.Color(0, 255, 0));
+        enviar1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        enviar1.setForeground(new java.awt.Color(255, 255, 255));
+        enviar1.setText("Enviar");
+        enviar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar1ActionPerformed(evt);
+            }
+        });
+        pn_laptop.add(enviar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+
+        CRUD.add(pn_laptop, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 300, 440));
 
         pn_escritorio.setBackground(new java.awt.Color(214, 217, 224));
         pn_escritorio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -289,23 +362,34 @@ public class Menu extends javax.swing.JFrame {
         jCheckBox3.setText("HDD");
         pn_escritorio.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, -1, -1));
 
-        CRUD.add(pn_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 300, -1));
-
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Tarjeta Gráfica");
-        CRUD.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, -1, -1));
+        pn_escritorio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
 
         tarjeta.add(no);
         no.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         no.setText("No");
-        CRUD.add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 360, -1, -1));
+        pn_escritorio.add(no, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         tarjeta.add(si);
         si.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         si.setText("Sí");
-        CRUD.add(si, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 360, -1, -1));
+        pn_escritorio.add(si, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+
+        enviar2.setBackground(new java.awt.Color(0, 255, 0));
+        enviar2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        enviar2.setForeground(new java.awt.Color(255, 255, 255));
+        enviar2.setText("Enviar");
+        enviar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviar2ActionPerformed(evt);
+            }
+        });
+        pn_escritorio.add(enviar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
+
+        CRUD.add(pn_escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 300, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -367,9 +451,25 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
+    private void enviar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enviarActionPerformed
+    }//GEN-LAST:event_enviar2ActionPerformed
+
+    private void enviar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enviar1ActionPerformed
+
+    private void si2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_si2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_si2ActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void enviar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enviar3ActionPerformed
 
     
     public static void main(String args[]) {
@@ -406,11 +506,12 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CRUD;
+    private javax.swing.ButtonGroup RGB;
     private javax.swing.ButtonGroup almacenamiento;
-    private javax.swing.JCheckBox b_escritorio;
-    private javax.swing.JCheckBox b_laptop;
     private javax.swing.JPanel barra;
-    private javax.swing.JButton enviar;
+    private javax.swing.JButton enviar1;
+    private javax.swing.JButton enviar2;
+    private javax.swing.JButton enviar3;
     private javax.swing.JPanel header;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -422,6 +523,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -434,13 +539,20 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelMin1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JCheckBox no;
+    private javax.swing.JRadioButton no2;
     private javax.swing.JPanel pn_agregar;
     private javax.swing.JPanel pn_escritorio;
+    private javax.swing.JPanel pn_laptop;
     private javax.swing.JCheckBox si;
+    private javax.swing.JRadioButton si2;
     private javax.swing.ButtonGroup tarjeta;
+    private javax.swing.JTextField tf_definicion;
     private javax.swing.JTextField tf_host1;
-    private javax.swing.JTextField tf_ip;
+    private javax.swing.JTextField tf_ip1;
+    private javax.swing.JTextField tf_marca1;
     private javax.swing.JTextField tf_mascara1;
     private javax.swing.JTextField tf_mascara2;
     private javax.swing.JTextField tf_ram;
