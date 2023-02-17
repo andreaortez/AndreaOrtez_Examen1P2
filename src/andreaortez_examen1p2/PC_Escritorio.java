@@ -2,13 +2,12 @@
 package andreaortez_examen1p2;
 
 public class PC_Escritorio extends PC{
-    private int RAM, capacidad;
-    private String tipo, tarjeta;
+    private String RAM, capacidad, tipo, tarjeta;
 
     public PC_Escritorio() {
     }
 
-    public PC_Escritorio(int RAM, int capacidad, String tipo, String tarjeta, int IP, int mascara, String host) {
+    public PC_Escritorio(String RAM, String capacidad, String tipo, String tarjeta, int IP, int mascara, String host) {
         super(IP, mascara, host);
         this.RAM = RAM;
         this.capacidad = capacidad;
@@ -16,19 +15,19 @@ public class PC_Escritorio extends PC{
         this.tarjeta = tarjeta;
     }
 
-    public int getRAM() {
+    public String getRAM() {
         return RAM;
     }
 
-    public void setRAM(int RAM) {
+    public void setRAM(String RAM) {
         this.RAM = RAM;
     }
 
-    public int getCapacidad() {
+    public String getCapacidad() {
         return capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
+    public void setCapacidad(String capacidad) {
         this.capacidad = capacidad;
     }
 

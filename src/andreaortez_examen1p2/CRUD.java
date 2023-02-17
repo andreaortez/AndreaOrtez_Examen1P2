@@ -4,6 +4,8 @@ package andreaortez_examen1p2;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import javax.swing.table.DefaultTableModel;
 
 public class CRUD extends javax.swing.JFrame {
 
@@ -13,6 +15,7 @@ public class CRUD extends javax.swing.JFrame {
         pn_escritorio.setVisible(false);
         pn_laptop.setVisible(false);
         pn_listar.setVisible(false);
+        pn_eliminar.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -61,6 +64,11 @@ public class CRUD extends javax.swing.JFrame {
         listarinfo = new javax.swing.JScrollPane();
         info = new javax.swing.JTextArea();
         title1 = new javax.swing.JLabel();
+        pn_eliminar = new javax.swing.JPanel();
+        title2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaeliminar = new javax.swing.JTable();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +118,11 @@ public class CRUD extends javax.swing.JFrame {
         });
 
         eliminar.setText("Eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout botonesLayout = new javax.swing.GroupLayout(botones);
         botones.setLayout(botonesLayout);
@@ -308,6 +321,64 @@ public class CRUD extends javax.swing.JFrame {
 
         CRUD.add(pn_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 560, 440));
 
+        pn_eliminar.setBackground(new java.awt.Color(214, 217, 224));
+
+        title2.setFont(new java.awt.Font("Roboto Black", 1, 24)); // NOI18N
+        title2.setForeground(new java.awt.Color(0, 0, 0));
+        title2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title2.setText("Eliminar PC");
+
+        tablaeliminar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Dirección IP", "Máscara de red", "Hostname"
+            }
+        ));
+        tablaeliminar.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setViewportView(tablaeliminar);
+
+        jToggleButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jToggleButton1.setText("Eliminar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pn_eliminarLayout = new javax.swing.GroupLayout(pn_eliminar);
+        pn_eliminar.setLayout(pn_eliminarLayout);
+        pn_eliminarLayout.setHorizontalGroup(
+            pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(title2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pn_eliminarLayout.createSequentialGroup()
+                .addGap(238, 238, 238)
+                .addComponent(jToggleButton1)
+                .addContainerGap(242, Short.MAX_VALUE))
+            .addGroup(pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_eliminarLayout.createSequentialGroup()
+                    .addContainerGap(39, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(33, 33, 33)))
+        );
+        pn_eliminarLayout.setVerticalGroup(
+            pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_eliminarLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(title2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 340, Short.MAX_VALUE)
+                .addComponent(jToggleButton1)
+                .addGap(22, 22, 22))
+            .addGroup(pn_eliminarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_eliminarLayout.createSequentialGroup()
+                    .addContainerGap(75, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(79, 79, 79)))
+        );
+
+        CRUD.add(pn_eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 560, 440));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -354,9 +425,14 @@ public class CRUD extends javax.swing.JFrame {
         try {
             if (escritorio.isSelected()) {
                 pn_escritorio.setVisible(true);
-                pcs.add(new PC_Escritorio(Integer.parseInt(tf_ram.getText()), Integer.parseInt(tf_almacenamiento.getText()),
-                    tipoa.getSelectedItem().toString(), tarjeta1.getSelectedItem().toString(), Integer.parseInt(tf_ip.getText()),
-                    Integer.parseInt(tf_mascara.getText()), tf_host.getText()));
+//                String a = tf_ram.getText();
+//                String b = tf_almacenamiento.getText();
+                String c = tf_ip.getText();
+                String d = tf_mascara.getText();
+                String e = tf_host.getText();
+                pcs.add(new PC_Escritorio(tf_ram.getText(), tf_almacenamiento.getText(),
+                    tipoa.getSelectedItem().toString(), tarjeta1.getSelectedItem().toString(), Integer.parseInt(c),
+                    Integer.parseInt(d), e));
         } else {
             pn_laptop.setVisible(true);
             pcs.add(new Laptop(tf_marca.getText(), Integer.parseInt(tf_definicion.getText()), rgb.getSelectedItem().toString(),
@@ -388,6 +464,21 @@ public class CRUD extends javax.swing.JFrame {
     private void tf_ipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_ipActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tf_ipActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+       pn_eliminar.setVisible(true);
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        if (tablaeliminar.getSelectedRow() >= 0) {
+            int r = JOptionPane.showConfirmDialog(tablaeliminar, "¿Desea elimnar producto?", "Eliminar producto", YES_NO_OPTION);
+            if (r == 0) {
+                pcs.remove(tablaeliminar.getSelectedRow());
+                listarTabla();
+                JOptionPane.showMessageDialog(this, "Producto eliminado exitosamente");
+            }
+        }
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     ArrayList<PC> pcs = new ArrayList();
     
@@ -422,6 +513,26 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void listarTabla() {
+        try {
+            //limpiar tabla
+            tablaeliminar.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},
+                    new String[]{"Marca", "Modelo", "Fecha", "Color", "Tipo", "Millas", "Cámara"}));
+
+            // TODO add your handling code here:
+            for (PC t : pcs) {
+                
+                Object[] row = {t.getIP(), t.getMascara(), t.getHost().toString()};
+                DefaultTableModel modelo = (DefaultTableModel) tablaeliminar.getModel();
+                modelo.addRow(row);
+                tablaeliminar.setModel(modelo);
+            }
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CRUD;
@@ -448,14 +559,18 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelMin1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JRadioButton laptop;
     private javax.swing.JButton listar;
     private javax.swing.JScrollPane listarinfo;
     private javax.swing.JPanel pn_agregar;
+    private javax.swing.JPanel pn_eliminar;
     private javax.swing.JPanel pn_escritorio;
     private javax.swing.JPanel pn_laptop;
     private javax.swing.JPanel pn_listar;
     private javax.swing.JComboBox<String> rgb;
+    private javax.swing.JTable tablaeliminar;
     private javax.swing.JComboBox<String> tarjeta1;
     private javax.swing.JTextField tf_almacenamiento;
     private javax.swing.JTextField tf_definicion;
@@ -466,5 +581,6 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JTextField tf_ram;
     private javax.swing.JComboBox<String> tipoa;
     private javax.swing.JLabel title1;
+    private javax.swing.JLabel title2;
     // End of variables declaration//GEN-END:variables
 }
