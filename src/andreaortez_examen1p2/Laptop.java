@@ -1,13 +1,12 @@
 package andreaortez_examen1p2;
 
 public class Laptop extends PC{
-    private String marca, RGB;
-    private int definicion;
+    private String marca, RGB, definicion;
 
     public Laptop() {
     }
 
-    public Laptop(String marca, int definicion, String RGB, String IP, String mascara, String host) {
+    public Laptop(String marca, String definicion, String RGB, String IP, String mascara, String host) {
         super(IP, mascara, host);
         this.marca = marca;
         this.RGB = RGB;
@@ -30,11 +29,11 @@ public class Laptop extends PC{
         this.RGB = RGB;
     }
 
-    public int getDefinicion() {
+    public String getDefinicion() {
         return definicion;
     }
 
-    public void setDefinicion(int definicion) {
+    public void setDefinicion(String definicion) {
         this.definicion = definicion;
     }
 

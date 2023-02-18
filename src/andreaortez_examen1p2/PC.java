@@ -50,9 +50,11 @@ public class PC {
     public void Ping(String ip2) {
         CRUD c = new CRUD();
         int t = c.pcs.indexOf(this.IP);
+        boolean valid = false;
 
         for (PC a : c.pcs) {
             if (a.getIP().equals(ip2)) {
+                valid = true;
                 String[] x = this.IP.split(".");
                 String[] y = ip2.split(".");
                 if (x[0] == y[0]) {
@@ -67,17 +69,17 @@ public class PC {
                     if (mask1[4].length() == 8 && mask2[4].length() == 8) {
                         int mascara1 = Binario(Integer.parseInt(mask1[4]));
                         int mascara2 = Binario(Integer.parseInt(mask2[4]));
-                        int pos1 = Posicion(String.valueOf(mascara1));
-                        int pos2 = Posicion(String.valueOf(mascara2));
+                        int pos1 = 24 + Posicion(String.valueOf(mascara1));
+                        int pos2 = 24 + Posicion(String.valueOf(mascara2));
 
-                        int posF;
-                        if (pos1 < pos2) {
-                            posF = pos1;
-                        } else {
-                            posF = pos2;
-                        }
+//                        int posF;
+//                        if (pos1 < pos2) {
+//                            posF = pos1;
+//                        } else {
+//                            posF = pos2;
+//                        }
 
-                        boolean comp = Comparacion(String.valueOf(binarioX), String.valueOf(binarioY), posF);
+                        boolean comp = Comparacion(String.valueOf(binarioX), String.valueOf(binarioY), pos1);
 
                         if (comp) {//Ping éxitoso
                             System.out.println(c.pcs.get(t).getHost() + "#ping:" + this.IP + "\n");
@@ -94,8 +96,7 @@ public class PC {
                         System.out.println("La máscara de red no es válida");
                         break;
                     }
-
-                } else {//Computadora Inalcanzable
+                } else if (valid == false) {//Computadora Inalcanzable
                     System.out.println(c.pcs.get(t).getHost() + "#ping:" + this.IP + "\n");
                     System.out.println("Pinging to " + this.IP + " 32 bits of data:");
                     for (int i = 0; i < 4; i++) {
@@ -105,7 +106,7 @@ public class PC {
                     System.out.println("    Packets: Sent = 4, Received = 0, Lost = 4 (100% Lost)");
                     System.out.println(c.pcs.get(t).getHost() + "#");
                 }
-            } else {
+            } else {//Ping sin respuesta
                 System.out.println(c.pcs.get(t).getHost() + "#ping:" + this.IP + "\n");
                 System.out.println("Pinging to " + this.IP + " 32 bits of data:");
                 for (int i = 0; i < 4; i++) {
@@ -117,6 +118,7 @@ public class PC {
                 System.out.println(this.host);
             }
         }
+
     }
 
     public static int Binario(int x) {

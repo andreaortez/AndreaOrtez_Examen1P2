@@ -483,7 +483,7 @@ public class CRUD extends javax.swing.JFrame {
 
     private void enviarLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLaptopActionPerformed
         try {
-            pcs.add(new Laptop(tf_marca.getText(), Integer.parseInt(tf_definicion.getText()), rgb.getSelectedItem().toString(),
+            pcs.add(new Laptop(tf_marca.getText(), tf_definicion.getText(), rgb.getSelectedItem().toString(),
                     tf_ip.getText(), tf_mascara.getText(), tf_host.getText()));
 
             tf_marca.setText("");
