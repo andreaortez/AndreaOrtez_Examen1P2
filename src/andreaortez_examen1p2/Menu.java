@@ -170,36 +170,18 @@ public class Menu extends javax.swing.JFrame {
                 } else if ("exit".equals(cad)) {
                     this.setVisible(true);
                 } else if ("ping".equals(cad.contains("ping"))) {
+                    PC p = new PC();
                     String ip2 = JOptionPane.showInputDialog(null, "Ingrese segunda dirección IP: ");
-                    for (PC a : c.pcs) {
-                        if (a.getIP().equals(ip2)) {
-                            String[] x = ip2.split(".");
-                            String[] y = ip.split(".");
-                            if (x[0] == y[0] && x[1] == y[1] && x[2] == y[2]) {
-                                int binarioX = Integer.parseInt(x[3]);
-
-                            }
-                        }
-                    }
-                } else {
+                    p.Ping(ip2);
+                }else{
                     System.out.println("Opción no válida");
                 }
-            } else {
-                System.out.println("El IP no existe");
             }
         }
     }//GEN-LAST:event_b_ingresarActionPerformed
 
     Scanner sc = new Scanner(System.in);
-
-    public static int Binario(int x) {
-        if (x <= 1) {
-            return x;
-        } else {
-            return x % 2 + Binario(x / 2) * 10;
-        }
-    }
-
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
