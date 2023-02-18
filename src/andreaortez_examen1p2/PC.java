@@ -91,7 +91,6 @@ public class PC {
                             System.out.println("    Packets: Sent = 4, Received = 4, Lost = 0 (0% Lost)");
                             System.out.println(c.pcs.get(t).getHost() + "#");
                         }
-
                     } else {
                         System.out.println("La máscara de red no es válida");
                         break;
