@@ -68,9 +68,9 @@ public class PC {
 
                     if (mask1[4].length() == 8 && mask2[4].length() == 8) {
                         int mascara1 = Binario(Integer.parseInt(mask1[4]));
-                        int mascara2 = Binario(Integer.parseInt(mask2[4]));
-                        int pos1 = 24 + Posicion(String.valueOf(mascara1));
-                        int pos2 = 24 + Posicion(String.valueOf(mascara2));
+//                        int mascara2 = Binario(Integer.parseInt(mask2[4]));
+                        int pos = 24 + Posicion(String.valueOf(mascara1));
+//                        int pos2 = 24 + Posicion(String.valueOf(mascara2));
 
 //                        int posF;
 //                        if (pos1 < pos2) {
@@ -79,7 +79,7 @@ public class PC {
 //                            posF = pos2;
 //                        }
 
-                        boolean comp = Comparacion(String.valueOf(binarioX), String.valueOf(binarioY), pos1);
+                        boolean comp = Comparacion(String.valueOf(binarioX), String.valueOf(binarioY), pos);
 
                         if (comp) {//Ping éxitoso
                             System.out.println(c.pcs.get(t).getHost() + "#ping:" + this.IP + "\n");
@@ -115,7 +115,6 @@ public class PC {
                 System.out.println("\n Ping statistics for " + this.IP + ":");
                 System.out.println("    Packets: Sent = 4, Received = 0, Lost = 4 (100% Lost)");
                 System.out.println(c.pcs.get(t).getHost() + "#");
-                System.out.println(this.host);
             }
         }
 
