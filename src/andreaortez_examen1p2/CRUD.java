@@ -15,6 +15,8 @@ public class CRUD extends javax.swing.JFrame {
         pn_laptop.setVisible(false);
         pn_listar.setVisible(false);
         pn_eliminar.setVisible(false);
+        
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -30,6 +32,7 @@ public class CRUD extends javax.swing.JFrame {
         agregar = new javax.swing.JButton();
         listar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pn_agregar = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -62,9 +65,9 @@ public class CRUD extends javax.swing.JFrame {
         tarjeta1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         pn_listar = new javax.swing.JPanel();
-        listarinfo = new javax.swing.JScrollPane();
-        info = new javax.swing.JTextArea();
         title1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablalistar = new javax.swing.JTable();
         pn_eliminar = new javax.swing.JPanel();
         title2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -125,6 +128,10 @@ public class CRUD extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 0, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Regresar");
+
         javax.swing.GroupLayout botonesLayout = new javax.swing.GroupLayout(botones);
         botones.setLayout(botonesLayout);
         botonesLayout.setHorizontalGroup(
@@ -134,19 +141,22 @@ public class CRUD extends javax.swing.JFrame {
                 .addGroup(botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(eliminar)
                     .addComponent(listar)
-                    .addComponent(agregar))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(agregar)
+                    .addComponent(jButton1))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         botonesLayout.setVerticalGroup(
             botonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(botonesLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
+                .addGap(49, 49, 49)
                 .addComponent(agregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGap(71, 71, 71)
                 .addComponent(listar)
-                .addGap(89, 89, 89)
+                .addGap(70, 70, 70)
                 .addComponent(eliminar)
-                .addGap(95, 95, 95))
+                .addGap(69, 69, 69)
+                .addComponent(jButton1)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         CRUD.add(botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 140, 440));
@@ -187,6 +197,7 @@ public class CRUD extends javax.swing.JFrame {
         });
         pn_agregar.add(tf_ip, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
 
+        escritorio.setBackground(new java.awt.Color(214, 217, 224));
         tipo.add(escritorio);
         escritorio.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         escritorio.setText("Escritorio");
@@ -197,6 +208,7 @@ public class CRUD extends javax.swing.JFrame {
         });
         pn_agregar.add(escritorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
+        laptop.setBackground(new java.awt.Color(214, 217, 224));
         tipo.add(laptop);
         laptop.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         laptop.setText("Laptop");
@@ -316,17 +328,24 @@ public class CRUD extends javax.swing.JFrame {
         pn_listar.setBackground(new java.awt.Color(214, 217, 224));
         pn_listar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        info.setColumns(20);
-        info.setRows(5);
-        listarinfo.setViewportView(info);
-
-        pn_listar.add(listarinfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 500, 340));
-
         title1.setFont(new java.awt.Font("Roboto Black", 3, 24)); // NOI18N
         title1.setForeground(new java.awt.Color(0, 0, 0));
         title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         title1.setText("Lista de PCs");
         pn_listar.add(title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 560, -1));
+
+        tablalistar.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Dirección IP", "Máscara de red", "Hostname"
+            }
+        ));
+        tablalistar.setGridColor(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setViewportView(tablalistar);
+
+        pn_listar.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 520, 340));
 
         CRUD.add(pn_listar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 560, 440));
 
@@ -431,7 +450,18 @@ public class CRUD extends javax.swing.JFrame {
         pn_listar.setVisible(true);
         pn_eliminar.setVisible(false);
 
-        info.setText(pcs.toString());
+        try {
+            tablalistar.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{},new String[]{"Dirección IP", "Máscara de Red", "Hostname"}));
+
+            for (PC t : pcs) {
+                Object[] row = {t.getIP(), t.getMascara(), t.getHost()};
+                DefaultTableModel modelo = (DefaultTableModel) tablalistar.getModel();
+                modelo.addRow(row);
+                tablalistar.setModel(modelo);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }//GEN-LAST:event_listarActionPerformed
 
     private void escritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escritorioActionPerformed
@@ -449,7 +479,7 @@ public class CRUD extends javax.swing.JFrame {
     private void enviarLaptopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarLaptopActionPerformed
         try {
             pcs.add(new Laptop(tf_marca.getText(), Integer.parseInt(tf_definicion.getText()), rgb.getSelectedItem().toString(),
-                    Integer.parseInt(tf_ip.getText()), Integer.parseInt(tf_mascara.getText()), tf_host.getText()));
+                    tf_ip.getText(), tf_mascara.getText(), tf_host.getText()));
 
             tf_marca.setText("");
             tf_definicion.setText("");
@@ -466,13 +496,10 @@ public class CRUD extends javax.swing.JFrame {
 
     private void enviarEscritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarEscritorioActionPerformed
         try {
-            String c = tf_ip.getText();
-            String d = tf_mascara.getText();
             String e = tf_host.getText();
 
-            pcs.add(new PC_Escritorio(tf_ram.getText(), tf_almacenamiento.getText(),
-                    tipoa.getSelectedItem().toString(), tarjeta1.getSelectedItem().toString(), Integer.parseInt(c),
-                    Integer.parseInt(d), e));
+            pcs.add(new PC_Escritorio(tf_ram.getText(), tf_almacenamiento.getText(),tipoa.getSelectedItem().toString(), 
+                    tarjeta1.getSelectedItem().toString(), tf_ip.getText(),tf_mascara.getText(), e));
 
             tf_ram.setText("");
             tf_almacenamiento.setText("");
@@ -502,7 +529,7 @@ public class CRUD extends javax.swing.JFrame {
 
     private void eliminarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarfActionPerformed
         if (tablaeliminar.getSelectedRow() >= 0) {
-            int r = JOptionPane.showConfirmDialog(tablaeliminar, "¿Desea elimnar producto?", "Eliminar producto", YES_NO_OPTION);
+            int r = JOptionPane.showConfirmDialog(tablaeliminar, "¿Desea eliminar producto?", "Eliminar producto", YES_NO_OPTION);
             if (r == 0) {
                 pcs.remove(tablaeliminar.getSelectedRow());
                 ListarTabla();
@@ -573,7 +600,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JButton enviarLaptop;
     private javax.swing.JRadioButton escritorio;
     private javax.swing.JPanel header1;
-    private javax.swing.JTextArea info;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -590,9 +617,9 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelMin1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JRadioButton laptop;
     private javax.swing.JButton listar;
-    private javax.swing.JScrollPane listarinfo;
     private javax.swing.JPanel pn_agregar;
     private javax.swing.JPanel pn_eliminar;
     private javax.swing.JPanel pn_escritorio;
@@ -600,6 +627,7 @@ public class CRUD extends javax.swing.JFrame {
     private javax.swing.JPanel pn_listar;
     private javax.swing.JComboBox<String> rgb;
     private javax.swing.JTable tablaeliminar;
+    private javax.swing.JTable tablalistar;
     private javax.swing.JComboBox<String> tarjeta1;
     private javax.swing.JTextField tf_almacenamiento;
     private javax.swing.JTextField tf_definicion;

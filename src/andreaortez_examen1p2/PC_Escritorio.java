@@ -7,7 +7,7 @@ public class PC_Escritorio extends PC{
     public PC_Escritorio() {
     }
 
-    public PC_Escritorio(String RAM, String capacidad, String tipo, String tarjeta, int IP, int mascara, String host) {
+    public PC_Escritorio(String RAM, String capacidad, String tipo, String tarjeta, String IP, String mascara, String host) {
         super(IP, mascara, host);
         this.RAM = RAM;
         this.capacidad = capacidad;

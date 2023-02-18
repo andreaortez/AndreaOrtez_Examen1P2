@@ -1,32 +1,30 @@
 package andreaortez_examen1p2;
 
 public class PC {
-
-    protected int IP, mascara;
-    protected String host;
+    protected String IP, mascara, host;
 
     public PC() {
     }
 
-    public PC(int IP, int mascara, String host) {
+    public PC(String IP, String mascara, String host) {
         this.IP = IP;
         this.mascara = mascara;
         this.host = host;
     }
 
-    public int getIP() {
+    public String getIP() {
         return IP;
     }
 
-    public void setIP(int IP) {
+    public void setIP(String IP) {
         this.IP = IP;
     }
 
-    public int getMascara() {
+    public String getMascara() {
         return mascara;
     }
 
-    public void setMascara(int mascara) {
+    public void setMascara(String mascara) {
         this.mascara = mascara;
     }
 

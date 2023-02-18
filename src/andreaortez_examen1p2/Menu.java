@@ -1,6 +1,6 @@
 package andreaortez_examen1p2;
 
-import java.util.ArrayList;
+import java.util.Scanner;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -10,6 +10,7 @@ public class Menu extends javax.swing.JFrame {
 
     public Menu() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,8 +26,8 @@ public class Menu extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        b_crud = new javax.swing.JButton();
+        b_ingresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,18 +93,23 @@ public class Menu extends javax.swing.JFrame {
         jLabel7.setText("Menu");
         menu.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 280, -1));
 
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton1.setText("CRUD PC");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        b_crud.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        b_crud.setText("CRUD PC");
+        b_crud.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                b_crudActionPerformed(evt);
             }
         });
-        menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 130, -1, -1));
+        menu.add(b_crud, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 130, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton2.setText("Ingresar PC");
-        menu.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        b_ingresar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        b_ingresar.setText("Ingresar PC");
+        b_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b_ingresarActionPerformed(evt);
+            }
+        });
+        menu.add(b_ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,12 +125,11 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void b_crudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_crudActionPerformed
         CRUD c = new CRUD();
-        Menu m = new Menu();
-        m.setVisible(false);
+        this.menu.setVisible(false);
         c.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_b_crudActionPerformed
 
     private void barraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barraMousePressed
         xMouse = evt.getX();
@@ -145,7 +150,55 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    
+    private void b_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_ingresarActionPerformed
+        this.setVisible(false);
+        CRUD c = new CRUD();
+        String ip = JOptionPane.showInputDialog(null, "Ingrese una dirección IP: ");
+
+        for (PC t : c.pcs) {
+            if (t.getIP().equals(ip)) {
+                System.out.print("Ingrese comando: ");
+
+                String cad = sc.next();
+
+                if ("show".equals(cad)) {
+                    String s = "";
+                    for (Object o : c.pcs) {
+                        s += "\n" + c.pcs.indexOf(o) + " - " + o + "\n";
+                    }
+                    System.out.println(s);
+                } else if ("exit".equals(cad)) {
+                    this.setVisible(true);
+                } else if ("ping".equals(cad.contains("ping"))) {
+                    String ip2 = JOptionPane.showInputDialog(null, "Ingrese segunda dirección IP: ");
+                    for (PC a : c.pcs) {
+                        if (a.getIP().equals(ip2)) {
+                            String[] x = ip2.split(".");
+                            String[] y = ip.split(".");
+                            if (x[0] == y[0] && x[1] == y[1] && x[2] == y[2]) {
+                                int binarioX = Integer.parseInt(x[3]);
+
+                            }
+                        }
+                    }
+                } else {
+                    System.out.println("Opción no válida");
+                }
+            } else {
+                System.out.println("El IP no existe");
+            }
+        }
+    }//GEN-LAST:event_b_ingresarActionPerformed
+
+    Scanner sc = new Scanner(System.in);
+
+    public static int Binario(int x) {
+        if (x <= 1) {
+            return x;
+        } else {
+            return x % 2 + Binario(x / 2) * 10;
+        }
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -158,16 +211,24 @@ public class Menu extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -182,9 +243,9 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup RGB;
     private javax.swing.ButtonGroup almacenamiento;
+    private javax.swing.JButton b_crud;
+    private javax.swing.JButton b_ingresar;
     private javax.swing.JPanel barra;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelMin;

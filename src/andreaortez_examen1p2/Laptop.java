@@ -7,7 +7,7 @@ public class Laptop extends PC{
     public Laptop() {
     }
 
-    public Laptop(String marca, int definicion, String RGB, int IP, int mascara, String host) {
+    public Laptop(String marca, int definicion, String RGB, String IP, String mascara, String host) {
         super(IP, mascara, host);
         this.marca = marca;
         this.RGB = RGB;
